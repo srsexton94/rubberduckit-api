@@ -84,8 +84,22 @@ heroku run rails db:migrate db:seed db:examples
 * Offer "forgot password" option for un-signed in users
 
 ## Entity Relationship Diagram
-...
-<!-- need to recreate -->
+[temporary - to replace with better format]
+
+|         User       |
+|--------------------|
+| id PRIMARY KEY  |
+| email STRING |
+| password STRING  |
+
+|     Conversation       |
+|--------------------|
+| id PRIMARY KEY  |
+| user FOREIGN KEY |
+| title STRING |
+| body STRING  |
+| notes STRING  |
+| solved BOOLEAN |
 
 ## API Documentation
 
