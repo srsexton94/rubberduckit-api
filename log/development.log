@@ -55,3 +55,259 @@ FOREIGN KEY ("user_id")
   [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(122534084984052315)[0m
   [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/sign-up" for ::1 at 2020-04-24 20:22:55 -0400
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#signup as */*
+  Parameters: {"credentials"=>{"email"=>"test@test", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (5.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@test"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "token", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "test@test"], ["token", "fe16adc3c01497a812f402ccff713c80"], ["password_digest", "$2a$12$ZzHlTNL1crqYIZSMfZgINOJen4WzfZE.ie7Sb/1AomjnvUiEh.a9y"], ["created_at", "2020-04-25 00:22:56.323504"], ["updated_at", "2020-04-25 00:22:56.323504"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "test@test"], ["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Json (1.26ms)
+Completed 201 Created in 263ms (Views: 11.7ms | ActiveRecord: 13.0ms)
+
+
+Started GET "/sign-in" for ::1 at 2020-04-24 20:24:11 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/sign-in"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/sign-in" for ::1 at 2020-04-24 20:24:43 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/sign-in"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/sign-in" for ::1 at 2020-04-24 20:24:49 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/sign-in"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/sign-in" for ::1 at 2020-04-24 20:25:40 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/sign-in"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/sign-in" for ::1 at 2020-04-24 20:25:57 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"test@test", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@test"], ["LIMIT", 1]]
+  [1m[36mUser Update (4.8ms)[0m  [1m[33mUPDATE "users" SET "token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["token", "02a334c6f95abd22f84a2a838d38c70a"], ["updated_at", "2020-04-25 00:25:57.129704"], ["id", 1]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (3.89ms)
+Completed 200 OK in 227ms (Views: 4.3ms | ActiveRecord: 5.4ms)
+
+
+Started PATCH "/change-password" for ::1 at 2020-04-24 20:30:41 -0400
+Processing by UsersController#changepw as */*
+  Parameters: {"passwords"=>"[FILTERED]"}
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/change-password" for ::1 at 2020-04-24 20:30:56 -0400
+Processing by UsersController#changepw as */*
+  Parameters: {"passwords"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "02a334c6f95abd22f84a2a838d38c70a"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "test@test"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = $1, "password_digest" = $2 WHERE "users"."id" = $3[0m  [["updated_at", "2020-04-25 00:30:56.572598"], ["password_digest", "$2a$12$dTZiOTc7aMQPEz/feMpXS.ZlTC7GVABxYt8FVAIFGxQ.UJVjWWBJG"], ["id", 1]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+Completed 204 No Content in 422ms (ActiveRecord: 1.9ms)
+
+
+Started DELETE "/sign-out" for ::1 at 2020-04-24 20:31:46 -0400
+Processing by UsersController#signout as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "02a334c6f95abd22f84a2a838d38c70a"], ["LIMIT", 1]]
+  [1m[36mUser Update (4.9ms)[0m  [1m[33mUPDATE "users" SET "token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["token", "80d07cb9937483173e4cb6bdc79ba2e4"], ["updated_at", "2020-04-25 00:31:46.949397"], ["id", 1]]
+Completed 204 No Content in 8ms (ActiveRecord: 5.3ms)
+
+
+Started POST "/sign-in" for ::1 at 2020-04-24 20:31:57 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"test@test", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@test"], ["LIMIT", 1]]
+  [1m[36mUser Update (15.4ms)[0m  [1m[33mUPDATE "users" SET "token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["token", "05271211e98a618c4096618c7a179c20"], ["updated_at", "2020-04-25 00:31:57.919061"], ["id", 1]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (1.31ms)
+Completed 200 OK in 228ms (Views: 1.8ms | ActiveRecord: 15.7ms)
+
+
+Started POST "/conversations" for ::1 at 2020-04-24 20:34:23 -0400
+Processing by ConversationsController#create as */*
+  Parameters: {"conversation"=>{"title"=>"test", "body"=>"testtesttest", "notes"=>"this is a test", "solved"=>"true", "owner"=>"1"}}
+Unpermitted parameter: :owner
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with ActiveModel::Errors (0.06ms)
+Completed 422 Unprocessable Entity in 53ms (Views: 3.3ms | ActiveRecord: 4.0ms)
+
+
+Started POST "/sign-in" for ::1 at 2020-04-24 20:37:11 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"test@test", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@test"], ["LIMIT", 1]]
+  [1m[36mUser Update (1.4ms)[0m  [1m[33mUPDATE "users" SET "token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["token", "ab86fddc8c378b87a1a93b0dd46aa722"], ["updated_at", "2020-04-25 00:37:11.071690"], ["id", 1]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (2.9ms)
+Completed 200 OK in 229ms (Views: 5.3ms | ActiveRecord: 2.3ms)
+
+
+Started POST "/conversations" for ::1 at 2020-04-24 20:37:35 -0400
+Processing by ConversationsController#create as */*
+  Parameters: {"conversation"=>{"title"=>"test", "body"=>"testtesttest", "notes"=>"this is a test", "solved"=>"true", "user_id"=>"1"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConversation Create (9.0ms)[0m  [1m[32mINSERT INTO "conversations" ("title", "body", "notes", "solved", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "test"], ["body", "testtesttest"], ["notes", "this is a test"], ["solved", true], ["user_id", 1], ["created_at", "2020-04-25 00:37:35.547533"], ["updated_at", "2020-04-25 00:37:35.547533"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered ConversationSerializer with ActiveModelSerializers::Adapter::Json (0.44ms)
+Completed 201 Created in 42ms (Views: 6.2ms | ActiveRecord: 10.0ms)
+
+
+Started GET "/conversations" for ::1 at 2020-04-24 20:39:25 -0400
+Processing by ConversationsController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "ab86fddc8c378b87a1a93b0dd46aa722"], ["LIMIT", 1]]
+  [1m[36mConversation Load (0.4ms)[0m  [1m[34mSELECT "conversations".* FROM "conversations"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (0.61ms)
+Completed 200 OK in 26ms (Views: 8.1ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/conversations/1" for ::1 at 2020-04-24 20:39:53 -0400
+Processing by ConversationsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "ab86fddc8c378b87a1a93b0dd46aa722"], ["LIMIT", 1]]
+  [1m[36mConversation Load (0.2ms)[0m  [1m[34mSELECT  "conversations".* FROM "conversations" WHERE "conversations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered ConversationSerializer with ActiveModelSerializers::Adapter::Json (0.33ms)
+Completed 200 OK in 5ms (Views: 1.0ms | ActiveRecord: 0.9ms)
+
+
+Started PATCH "/conversations/1" for ::1 at 2020-04-24 20:40:50 -0400
+Processing by ConversationsController#update as */*
+  Parameters: {"conversation"=>{"title"=>"test", "body"=>"testtesttest", "notes"=>"this is a test", "solved"=>"false", "user_id"=>"1"}, "id"=>"1"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "ab86fddc8c378b87a1a93b0dd46aa722"], ["LIMIT", 1]]
+  [1m[36mConversation Load (0.9ms)[0m  [1m[34mSELECT  "conversations".* FROM "conversations" WHERE "conversations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConversation Update (0.3ms)[0m  [1m[33mUPDATE "conversations" SET "solved" = $1, "updated_at" = $2 WHERE "conversations"."id" = $3[0m  [["solved", false], ["updated_at", "2020-04-25 00:40:50.973059"], ["id", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered ConversationSerializer with ActiveModelSerializers::Adapter::Json (0.23ms)
+Completed 200 OK in 11ms (Views: 0.7ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/conversations/1" for ::1 at 2020-04-24 20:42:25 -0400
+Processing by ConversationsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "ab86fddc8c378b87a1a93b0dd46aa722"], ["LIMIT", 1]]
+  [1m[36mConversation Load (0.2ms)[0m  [1m[34mSELECT  "conversations".* FROM "conversations" WHERE "conversations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered ConversationSerializer with ActiveModelSerializers::Adapter::Json (0.3ms)
+Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/conversations" for ::1 at 2020-04-24 20:42:29 -0400
+Processing by ConversationsController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "ab86fddc8c378b87a1a93b0dd46aa722"], ["LIMIT", 1]]
+  [1m[36mConversation Load (0.4ms)[0m  [1m[34mSELECT "conversations".* FROM "conversations"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (0.52ms)
+Completed 200 OK in 4ms (Views: 2.1ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/conversations/1" for ::1 at 2020-04-24 20:42:47 -0400
+Processing by ConversationsController#destroy as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "ab86fddc8c378b87a1a93b0dd46aa722"], ["LIMIT", 1]]
+  [1m[36mConversation Load (0.3ms)[0m  [1m[34mSELECT  "conversations".* FROM "conversations" WHERE "conversations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mConversation Destroy (0.3ms)[0m  [1m[31mDELETE FROM "conversations" WHERE "conversations"."id" = $1[0m  [["id", 1]]
+  [1m[35m (5.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 204 No Content in 9ms (ActiveRecord: 6.3ms)
+
+
+Started GET "/conversations" for ::1 at 2020-04-24 20:42:50 -0400
+Processing by ConversationsController#index as */*
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "ab86fddc8c378b87a1a93b0dd46aa722"], ["LIMIT", 1]]
+  [1m[36mConversation Load (3.9ms)[0m  [1m[34mSELECT "conversations".* FROM "conversations"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (0.49ms)
+Completed 200 OK in 10ms (Views: 1.8ms | ActiveRecord: 5.4ms)
+
+

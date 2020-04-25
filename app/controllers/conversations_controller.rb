@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ConversationsController < ApplicationController
+class ConversationsController < ProtectedController
   before_action :set_conversation, only: %i[show update destroy]
 
   # GET /conversations
