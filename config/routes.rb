@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :conversations
   # RESTful routes
+  resources :conversations, except: %i[new edit]
   resources :examples, except: %i[new edit]
 
   # Custom routes
